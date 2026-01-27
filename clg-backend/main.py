@@ -10,6 +10,7 @@ from datetime import datetime
 
 # Load environment variables
 load_dotenv()
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for React

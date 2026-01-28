@@ -13,8 +13,9 @@ from datetime import datetime
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for React
-
+# --- CONFIGURATION ---
+# This allows all origins, all methods, and all headers
+CORS(app, resources={r"/*": {"origins": "*"}}, methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 # --- CONFIGURATION ---
 MONGO_URI = os.environ.get('MONGO_URI')
 TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
